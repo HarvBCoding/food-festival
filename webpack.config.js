@@ -11,7 +11,11 @@ module.exports = {
     schedule: "./assets/js/schedule.js",
     tickets: "./assets/js/tickets.js",
   },
-
+  devServer: {
+      static: {
+          directory: path.join(__dirname, ".")
+      }
+  },
   // the output of the bundled code from the entry point; best practice to put the code in dist
   output: {
     path: path.join(__dirname + "/dist"),
