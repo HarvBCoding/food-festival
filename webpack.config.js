@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const WebpackPwaManifest = require("webpack-pwa-manifest");
 
 module.exports = {
   //the entry property is the root of the bundle and the beginning of the dependency graph
@@ -58,6 +58,29 @@ module.exports = {
       // outputs to an HTML file in the dist folder
       analyzerMode: "static",
     }),
+    // create a new manifest using webpackpwamanifest
+    new WebpackPwaManifest({
+        name: "Food Event",
+        short_name: "Foodies",
+        description: "An app that allowd you to view upcoming food events.",
+        // specifies the homepage for the PWA relative to the location of the manifest file
+        start_url: "../index.html",
+        background_color: "#01579b",
+        theme_color: "#ffffff",
+        // fingerprints is specific to the plugin, tells webpack whether or not it should 
+        // generate unique footprints everytime a new manifest is generated
+        fingerprints: false,
+        // inject property determines whether the link to maidest.json is added to the html
+        inject: false,
+        icons: [{
+            // path to the icon image used
+            src: path.resolve("assets/img/icons/icon-512x512.png"),
+            // the src image will be created in the specified sizes
+            sizes: [96, 128, 192, 256, 384, 512],
+            // designates where the icons will be sent after creation of web manifest
+            destination: path.join("assets", "icons")
+        }]
+    })
   ],
   // the mode is the mode webpack should run
   mode: "development",
