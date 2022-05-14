@@ -11,15 +11,14 @@
   * [Technologies](#technologies)
   * [Questions](#questions)
   
-  
-  
 
   ## Installation Instructions
-  After downloading the repo, run npm i from the terminal to install the required packages and libraries. Once the technologies are installed open the index.html file to test the code locally.
-
-  ## Usage
   Navigate to [Food Festival Site](https://harvbcoding.github.io/food-festival/)
 
+  ## Usage
+  Once on the homepage, a user can purchase tickets and view the schedule for the regional food festival
+
+  ![Food Festival homepage](./assets/img/food-festival-homepage.png)
   
   ## Technologies
 
